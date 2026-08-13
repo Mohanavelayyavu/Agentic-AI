@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: agentic-ai-fertilizer-recommender
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: ENABLE_AI_ADVICE
+        value: "true"
+      - key: PYTHON_VERSION
+        value: "3.11.9"
